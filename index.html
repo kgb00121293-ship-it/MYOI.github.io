@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYOI 커미션 & 외주 안내</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: transparent !important;
+      color: #1e293b;
+    }
+    /* Pinterest-Style Masonry: 3열(3 Columns) 엄격 유지 */
+    .masonry-col-3 {
+      column-count: 3;
+      column-gap: 0.875rem;
+    }
+    @media (max-width: 580px) {
+      .masonry-col-3 {
+        column-count: 2;
+        column-gap: 0.5rem;
+      }
+    }
+    .masonry-brick {
+      break-inside: avoid;
+      margin-bottom: 0.875rem;
+      display: inline-block;
+      width: 100%;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-transparent text-slate-800 antialiased selection:bg-rose-100 selection:text-rose-600 relative">
+
+  <!-- MAIN CONTAINER (ALL COMPONENTS ALIGNED TO MAX-W-4XL) -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 pt-6 pb-12 space-y-12 sm:space-y-16">
+
+    <!-- 0. CENTERED ARTIST PROFILE CARD -->
+    <header class="relative bg-gradient-to-r from-rose-100/90 via-pink-50/85 to-sky-100/85 rounded-3xl border border-rose-200/80 p-6 sm:p-8 text-center shadow-md shadow-pink-100/60 overflow-hidden">
+      <!-- Profile Avatar -->
+      <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-3xl overflow-hidden border-4 border-white bg-white shadow-lg shadow-pink-200/60 shrink-0 ring-2 ring-pink-100">
+        <img 
+          src="https://i.crepe.land/https://crepe.land/user_profile/q/qj/qjhssnsffwdt1uovj5x5xa03ffhj42n7_image.jpg?h=320&q=100&t=i&v=3a&w=320" 
+          alt="프로필" 
+          class="w-full h-full object-cover"
+          onerror="this.src='https://placehold.co/200x200/fb7185/ffffff?text=MYOI'"
+        >
+      </div>
+
+      <!-- Artist Nickname & Info -->
+      <div class="mt-3.5 flex items-center justify-center gap-2">
+        <h1 class="text-2xl font-black text-slate-900 tracking-tight">MYOI</h1>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-white/95 text-rose-600 border border-rose-200 shadow-sm shadow-rose-100">주문 접수 중</span>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1.5 max-w-md mx-auto">웹소설 표지 · 캐릭터 시트 · 방송용 & 상업용 일러스트 전문</p>
+
+      <!-- Center Action Buttons -->
+      <div class="flex items-center justify-center gap-2 mt-5">
+        <button onclick="scrollToSection('sec-form')" class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-300 transition active:scale-98">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          견적 & 신청 바로가기
+        </button>
+        <button onclick="copyPageLink()" class="inline-flex items-center justify-center p-2.5 rounded-xl border border-white/90 bg-white/90 backdrop-blur-xs text-slate-600 hover:bg-white shadow-md shadow-slate-200/60 transition" title="페이지 링크 복사">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        </button>
+      </div>
+
+      <!-- Slot Status Badge -->
+      <div class="mt-4">
+        <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/90 shadow-sm shadow-slate-200/60">
+          <span class="text-xs font-semibold text-slate-600">슬롯 현황</span>
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300 ring-2 ring-emerald-400 ring-offset-1 animate-pulse" title="신청 가능"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300 ring-2 ring-emerald-400 ring-offset-1 animate-pulse" title="신청 가능"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300 ring-2 ring-emerald-400 ring-offset-1 animate-pulse" title="신청 가능"></span>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-600 ml-1">잔여 3자리</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. SECTION: PORTFOLIO -->
+    <section id="sec-portfolio" class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-5 rounded-full bg-rose-500 shadow-sm shadow-rose-300"></span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900">포트폴리오</h2>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">클릭하면 원본 비율의 대형 팝업으로 크게 확인하실 수 있습니다.</p>
+        </div>
+        <div id="portfolio-category-bar" class="flex flex-wrap items-center gap-1.5">
+          <!-- Dynamically injected -->
+        </div>
+      </div>
+
+      <!-- Natural Flow 3-Column Masonry Grid -->
+      <div id="portfolio-masonry-grid" class="masonry-col-3 pt-2">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 2. SECTION: TYPES & PRICING -->
+    <section id="sec-pricing" class="space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-5 rounded-full bg-rose-500 shadow-sm shadow-rose-300"></span>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900">타입 & 가격 안내</h2>
+        </div>
+        <p class="text-xs text-slate-500 mt-1">작업 범위 및 용도에 따른 기본 작업 단가 안내입니다.</p>
+      </div>
+
+      <!-- Workflow Step Banner -->
+      <div class="bg-gradient-to-r from-rose-100/90 via-pink-50/90 to-sky-100/90 rounded-2xl border border-rose-200/70 p-5 shadow-md shadow-pink-100/70">
+        <h3 class="text-xs font-bold text-slate-800 mb-3 flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+          진행 프로세스 (평균 14일 ~ 30일 소요)
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-center">
+          <div class="bg-white/90 backdrop-blur-xs border border-white rounded-xl p-3 shadow-sm shadow-slate-200/50">
+            <span class="text-[10px] font-extrabold text-rose-500 uppercase tracking-wide">STEP 01</span>
+            <p class="text-xs font-bold text-slate-800 mt-1">문의 및 견적</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">상담 및 일정 협의</p>
+          </div>
+          <div class="bg-white/90 backdrop-blur-xs border border-white rounded-xl p-3 shadow-sm shadow-slate-200/50">
+            <span class="text-[10px] font-extrabold text-rose-500 uppercase tracking-wide">STEP 02</span>
+            <p class="text-xs font-bold text-slate-800 mt-1">입금 및 주문</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">전액 입금 후 착수</p>
+          </div>
+          <div class="bg-white/90 backdrop-blur-xs border border-white rounded-xl p-3 shadow-sm shadow-slate-200/50">
+            <span class="text-[10px] font-extrabold text-rose-500 uppercase tracking-wide">STEP 03</span>
+            <p class="text-xs font-bold text-slate-800 mt-1">구도 러프</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">동세 및 배치 컨펌</p>
+          </div>
+          <div class="bg-white/90 backdrop-blur-xs border border-white rounded-xl p-3 shadow-sm shadow-slate-200/50">
+            <span class="text-[10px] font-extrabold text-rose-500 uppercase tracking-wide">STEP 04</span>
+            <p class="text-xs font-bold text-slate-800 mt-1">러프 채색</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">분위기 & 라이팅 1차 확인</p>
+          </div>
+          <div class="col-span-2 sm:col-span-1 bg-white/90 backdrop-blur-xs border border-white rounded-xl p-3 shadow-sm shadow-slate-200/50">
+            <span class="text-[10px] font-extrabold text-rose-500 uppercase tracking-wide">STEP 05</span>
+            <p class="text-xs font-bold text-slate-800 mt-1">완성본 전달</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">고해상도 파일 납품</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Type Cards -->
+      <div class="grid grid-cols-1 gap-3.5">
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm shadow-slate-200/60 hover:shadow-md hover:border-slate-300 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-50 text-indigo-600 border border-indigo-200 shadow-2xs">Type 01</span>
+              <h4 class="text-base font-bold text-slate-900">웹소설 표지 및 삽화</h4>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">기본</span>
+              <span class="text-base font-extrabold text-rose-600 ml-1">700,000원~</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            웹소설 표지 및 기타 표지 작업입니다. 상업적 이용 가능한 외주 타입이며, 배경 작업이 기본 포함됩니다. (타이포 디자인 제외)
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm shadow-slate-200/60 hover:shadow-md hover:border-slate-300 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-600 border border-rose-200 shadow-2xs">Type 02</span>
+              <h4 class="text-base font-bold text-slate-900">개인 커미션</h4>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">두상 기준</span>
+              <span class="text-base font-extrabold text-rose-600 ml-1">30,000원~</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            비상업적 용도로 사용되는 커미션입니다. 소량의 개인 소장용 굿즈 제작 및 SNS 업로드가 가능합니다.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm shadow-slate-200/60 hover:shadow-md hover:border-slate-300 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-600 border border-amber-200 shadow-2xs">Type 03</span>
+              <h4 class="text-base font-bold text-slate-900">캐릭터 시트 및 디자인</h4>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">비상업 기준</span>
+              <span class="text-base font-extrabold text-rose-600 ml-1">300,000원~</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            앞, 옆, 뒤 3면화와 디테일 장신구 설명까지 포함되는 설정 시트 작업입니다. 비상업(30만) / 방송용(50만) / 상업용(80만)으로 책정됩니다.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm shadow-slate-200/60 hover:shadow-md hover:border-slate-300 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200 shadow-2xs">Type 04</span>
+              <h4 class="text-base font-bold text-slate-900">방송용 기타 일러스트</h4>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">두상 기준</span>
+              <span class="text-base font-extrabold text-rose-600 ml-1">60,000원~</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            유튜브, 치지직 등 방송 대기화면 및 방송에 사용되는 일러스트 작업입니다.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm shadow-slate-200/60 hover:shadow-md hover:border-slate-300 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-violet-50 text-violet-600 border border-violet-200 shadow-2xs">Type 05</span>
+              <h4 class="text-base font-bold text-slate-900">상업용 기타 일러스트</h4>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">기본</span>
+              <span class="text-base font-extrabold text-rose-600 ml-1">500,000원~</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+            상업적 판매 및 홍보용으로 사용되는 모든 형태의 일러스트 외주 작업입니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.5 SECTION: USAGE RIGHTS GUIDELINES -->
+    <section id="sec-usage" class="space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-5 rounded-full bg-rose-500 shadow-sm shadow-rose-300"></span>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900">용도별 활용 범위 안내</h2>
+        </div>
+        <p class="text-xs text-slate-500 mt-1">신청하시는 용도(비상업용 / 방송용 / 상업용)에 따른 세부 이용 권한 기준표입니다.</p>
+      </div>
+
+      <!-- Modern Comparison Table Card -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/60 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-50/90 border-b border-slate-200 text-slate-700">
+                <th class="py-3.5 px-4 font-bold text-slate-800 min-w-[140px]">활용 항목</th>
+                <th class="py-3.5 px-3 font-bold text-center text-slate-700 min-w-[90px]">
+                  <span class="inline-block px-2 py-0.5 rounded-md bg-rose-50 text-rose-600 border border-rose-200 text-xs">비상업용</span>
+                </th>
+                <th class="py-3.5 px-3 font-bold text-center text-slate-700 min-w-[90px]">
+                  <span class="inline-block px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-600 border border-emerald-200 text-xs">방송용</span>
+                </th>
+                <th class="py-3.5 px-3 font-bold text-center text-slate-700 min-w-[90px]">
+                  <span class="inline-block px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 border border-indigo-200 text-xs">상업용</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">개인 소장</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">SNS 업로드 및 웹 게시</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">웹소설 / 전자책 등 표지 활용</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">인터넷 방송 및 유튜브 수익 활용</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">소량 개인 소장용 굿즈 제작</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">수익 창출용 굿즈 제작 및 판매</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs">O</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">저작재산권 양도</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center">
+                  <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">별도 문의</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/60 transition">
+                <td class="py-3 px-4 font-medium text-slate-800">임의 2차 가공 및 수정</td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+                <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-50 text-rose-400 font-bold text-xs">X</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="p-3.5 bg-slate-50/60 border-t border-slate-100 text-[11px] text-slate-500 leading-relaxed">
+          ※ 모든 타입에서 <span class="font-bold text-slate-700">AI 학습 데이터 사용 및 원작자 사칭은 절대 금지</span>됩니다.<br>
+          ※ 상업용 저작재산권 전부 양도나 독점 배타적 이용 권한이 필요하신 경우 사전 문의 바랍니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION: ESTIMATE & CART APPLICATION -->
+    <section id="sec-form" class="space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-5 rounded-full bg-rose-500 shadow-sm shadow-rose-300"></span>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900">견적 계산기 & 신청 양식 생성</h2>
+        </div>
+        <p class="text-xs text-slate-500 mt-1">옵션을 선택하고 장바구니에 담으면 신청 양식이 자동으로 완성됩니다.</p>
+      </div>
+
+      <!-- Configurator & Cart Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Left: Option Configurator (7 cols) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-5 shadow-md shadow-slate-200/70 space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+              작업 옵션 선택
+            </h3>
+            <span class="text-[11px] text-slate-400">옵션 선택 후 장바구니에 담기</span>
+          </div>
+
+          <!-- Category Selection -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2">카테고리 선택</label>
+            <div class="space-y-2">
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="selectCategory('personal')" id="cat-btn-personal" class="cat-pill py-2.5 px-2 rounded-xl text-xs font-semibold text-center border transition bg-rose-50 border-rose-400 text-rose-600 shadow-sm shadow-rose-100">
+                  개인 커미션
+                </button>
+                <button type="button" onclick="selectCategory('broadcast')" id="cat-btn-broadcast" class="cat-pill py-2.5 px-2 rounded-xl text-xs font-semibold text-center border transition bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-2xs">
+                  방송용 일러스트
+                </button>
+                <button type="button" onclick="selectCategory('sheet')" id="cat-btn-sheet" class="cat-pill py-2.5 px-2 rounded-xl text-xs font-semibold text-center border transition bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-2xs">
+                  캐시트 및 디자인
+                </button>
+              </div>
+              <div class="grid grid-cols-2 gap-2 max-w-[70%] mx-auto">
+                <button type="button" onclick="selectCategory('novel')" id="cat-btn-novel" class="cat-pill py-2.5 px-2 rounded-xl text-xs font-semibold text-center border transition bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-2xs">
+                  웹소설 표지 및 삽화
+                </button>
+                <button type="button" onclick="selectCategory('commercial')" id="cat-btn-commercial" class="cat-pill py-2.5 px-2 rounded-xl text-xs font-semibold text-center border transition bg-white border-slate-200 text-slate-600 hover:bg-slate-50 shadow-2xs">
+                  상업용 기타 일러스트
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Scale / Type Selector -->
+          <div id="dynamic-scale-container" class="space-y-2">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Character Count -->
+          <div id="character-count-box" class="flex items-center justify-between p-3 bg-slate-50/80 rounded-xl border border-slate-200/90 shadow-2xs">
+            <div>
+              <span class="text-xs font-bold text-slate-800">인원수</span>
+              <p class="text-[11px] text-slate-400">인물 추가 시 인당 기본 단가가 적용됩니다.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="changeCharCount(-1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-600 hover:bg-slate-100 shadow-sm active:scale-95">−</button>
+              <span id="char-count-display" class="w-6 text-center text-xs font-bold text-slate-800">1</span>
+              <button type="button" onclick="changeCharCount(1)" class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-600 hover:bg-slate-100 shadow-sm active:scale-95">+</button>
+            </div>
+          </div>
+
+          <!-- Additional Add-ons -->
+          <div class="space-y-3 pt-2 border-t border-slate-100">
+            <span class="block text-xs font-bold text-slate-700">추가 옵션</span>
+            
+            <!-- Review Event Discount toggle -->
+            <div class="flex items-center justify-between p-2.5 rounded-xl border border-rose-200 bg-rose-50/70 shadow-sm shadow-rose-100">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="opt-review-event" onchange="calculateActiveConfig()" class="w-4 h-4 text-rose-500 rounded border-slate-300 focus:ring-rose-400">
+                <label for="opt-review-event" class="text-xs font-bold text-rose-700 cursor-pointer flex items-center gap-1">
+                  <span>리뷰 이벤트 참여</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-rose-500 text-white font-semibold shadow-2xs">10% DC</span>
+                </label>
+              </div>
+              <span id="opt-review-discount-label" class="text-xs font-bold text-rose-600">-0원</span>
+            </div>
+
+            <!-- Non-disclosure toggle -->
+            <div class="flex items-center justify-between p-2.5 rounded-xl border border-slate-200/90 bg-white shadow-2xs">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" id="opt-private" onchange="calculateActiveConfig()" class="w-4 h-4 text-rose-500 rounded border-slate-300 focus:ring-rose-400">
+                <label for="opt-private" class="text-xs font-medium text-slate-700 cursor-pointer">비공개 요청</label>
+              </div>
+              <span id="opt-private-cost" class="text-xs font-bold text-slate-600">+10,000원</span>
+            </div>
+
+            <!-- Background select -->
+            <div id="bg-option-box" class="space-y-1">
+              <label class="block text-[11px] font-semibold text-slate-500">배경 추가 옵션</label>
+              <select id="opt-bg" onchange="calculateActiveConfig()" class="w-full text-xs font-medium bg-white border border-slate-200/90 rounded-xl p-2.5 text-slate-700 focus:outline-rose-400 shadow-2xs">
+                <option value="none">배경 없음 (단색 / 투명) (+0원)</option>
+                <option value="personal">배경 추가 (비상업용) (+30,000원)</option>
+                <option value="broadcast">배경 추가 (방송용) (+50,000원)</option>
+              </select>
+            </div>
+
+            <!-- Custom extra fee -->
+            <div class="space-y-1">
+              <label class="block text-[11px] font-semibold text-slate-500">기타 추가금 (소품 / 빠른마감 등)</label>
+              <div class="relative">
+                <input type="number" id="opt-custom-fee" value="0" min="0" step="5000" oninput="calculateActiveConfig()" class="w-full text-xs font-medium bg-white border border-slate-200/90 rounded-xl p-2.5 pr-8 text-slate-700 focus:outline-rose-400 shadow-2xs" placeholder="0">
+                <span class="absolute right-3 top-2.5 text-xs text-slate-400 font-medium">원</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-time Price Preview -->
+          <div class="p-3.5 bg-rose-50/80 border border-rose-200 rounded-xl flex items-center justify-between shadow-sm shadow-rose-100">
+            <div>
+              <span class="text-xs font-bold text-rose-900 block">현재 선택 항목 예상가</span>
+              <span id="active-item-breakdown" class="text-[11px] text-rose-700">개인 커미션 · 두상 (1인)</span>
+            </div>
+            <div class="text-right">
+              <span id="active-item-price" class="text-lg font-black text-rose-600">30,000</span>
+              <span class="text-xs font-bold text-rose-900">원</span>
+            </div>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <div class="pt-1">
+            <button type="button" onclick="addToCart()" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-slate-300 transition active:scale-98">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              선택한 옵션 견적 장바구니에 담기
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Cart & Generator (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-md shadow-slate-200/70 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <h3 class="text-sm font-bold text-slate-900">견적 장바구니</h3>
+              </div>
+              <button onclick="clearCart()" class="text-[11px] font-semibold text-slate-400 hover:text-rose-500 transition">전체 비우기</button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-container" class="space-y-2 max-h-80 overflow-y-auto custom-scrollbar pr-1"></div>
+
+            <!-- Total Price Display -->
+            <div class="pt-3 border-t border-slate-100 space-y-1">
+              <div class="flex items-baseline justify-between">
+                <span class="text-xs font-semibold text-slate-500">총 예상 견적</span>
+                <div class="text-right">
+                  <span id="cart-total-price" class="text-2xl font-black text-rose-600">0</span>
+                  <span class="text-sm font-bold text-slate-800 ml-0.5">원</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 text-right">※ 소품 난이도 및 일정에 따라 최종 협의될 수 있습니다.</p>
+            </div>
+
+            <!-- Application Form Copy Button -->
+            <div class="pt-2">
+              <button type="button" onclick="copyApplicationForm()" class="w-full py-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-rose-200 transition active:scale-98">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                신청 양식 1클릭 복사하기
+              </button>
+            </div>
+
+            <!-- Application Form Preview -->
+            <div class="space-y-1.5 pt-1">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-slate-600">생성된 신청 양식 미리보기</span>
+                <span class="text-[10px] text-slate-400">장바구니 실시간 연동</span>
+              </div>
+              <textarea id="form-preview-area" readonly class="w-full h-40 text-[11px] font-mono p-2.5 bg-slate-50/80 border border-slate-200 rounded-xl text-slate-600 resize-none focus:outline-none custom-scrollbar leading-relaxed shadow-inner"></textarea>
+            </div>
+          </div>
+
+          <!-- Quick Tip Card -->
+          <div class="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 space-y-1 shadow-sm shadow-amber-100">
+            <p class="font-bold flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              신청서 전달 팁
+            </p>
+            <p class="text-amber-800/90 text-[11px] leading-relaxed">
+              <strong>[1클릭 복사]</strong> 버튼을 누른 뒤, 아트머그 1:1 메시지에 붙여넣기(Ctrl+V)하여 문의해 주시면 가장 빠르고 정확하게 접수됩니다.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SECTION: GUIDELINES & FAQ -->
+    <section id="sec-guidelines" class="space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-5 rounded-full bg-rose-500 shadow-sm shadow-rose-300"></span>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900">이용 안내 및 주의사항</h2>
+        </div>
+        <p class="text-xs text-slate-500 mt-1">원활한 작업을 위해 신청 전 규정을 꼭 확인해 주세요.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-md shadow-slate-200/60 space-y-3">
+        <div class="space-y-2">
+          <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs">
+            <button onclick="toggleFaq('faq-1')" class="w-full p-3.5 text-left text-xs sm:text-sm font-bold text-slate-800 bg-slate-50 flex items-center justify-between">
+              <span>01. 저작권 및 2차 사용 범위</span>
+              <span id="faq-1-arrow" class="text-xs text-slate-400">▼</span>
+            </button>
+            <div id="faq-1" class="p-3.5 bg-white text-xs text-slate-600 border-t border-slate-200 leading-relaxed">
+              모든 작업물의 저작권은 작가 본인에게 있습니다.<br>
+              개인 커미션 작업물은 SNS 업로드 및 소량의 비영리 개인 소장용 굿즈 제작만 허용됩니다.<br>
+              상업적 목적(유튜브 수익 창출, 표지 출판, 외주 등)의 무단 도용 및 2차 가공, AI 학습을 엄격히 금지합니다.
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs">
+            <button onclick="toggleFaq('faq-2')" class="w-full p-3.5 text-left text-xs sm:text-sm font-bold text-slate-800 bg-slate-50 flex items-center justify-between">
+              <span>02. 작업 기간 및 환불 규정</span>
+              <span id="faq-2-arrow" class="text-xs text-slate-400">▼</span>
+            </button>
+            <div id="faq-2" class="p-3.5 bg-white text-xs text-slate-600 border-t border-slate-200 leading-relaxed">
+              기본 작업 기간은 14일 ~ 30일 내외입니다.<br>
+              러프 착수 전: 100% 환불 가능<br>
+              러프 컨펌 후: 50% 환불 가능<br>
+              채색 진행 및 최종 완성 이후: 단순 변심으로 인한 환불 불가
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl overflow-hidden shadow-2xs">
+            <button onclick="toggleFaq('faq-3')" class="w-full p-3.5 text-left text-xs sm:text-sm font-bold text-slate-800 bg-slate-50 flex items-center justify-between">
+              <span>03. 컨펌 및 수정 안내</span>
+              <span id="faq-3-arrow" class="text-xs text-slate-400">▼</span>
+            </button>
+            <div id="faq-3" class="p-3.5 bg-white text-xs text-slate-600 border-t border-slate-200 leading-relaxed">
+              구도 러프 단계 1회, 러프 채색 단계 1회로 총 2회의 기본 컨펌이 제공됩니다.<br>
+              지정된 단계를 벗어난 전면적인 재작업이나 추가 수정 요청 시 별도의 수정 비용이 발생할 수 있습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- [정확한 클릭 화면 위치 기준] FULLSCREEN LIGHTBOX POPUP -->
+  <div id="lightbox-modal" onclick="handleBackdropClick(event)" class="absolute inset-0 z-50 bg-black/80 backdrop-blur-xs hidden items-start justify-center p-4 cursor-pointer min-h-full w-full">
+    <div id="lightbox-card" class="relative bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl flex flex-col cursor-default">
+      <div class="p-3.5 bg-white border-b border-slate-200 flex items-center justify-between">
+        <h4 id="lightbox-title" class="text-sm font-bold text-slate-900 truncate">작품 상세</h4>
+        <button onclick="closeLightbox()" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 font-bold transition">✕</button>
+      </div>
+      <div class="bg-slate-100 flex items-center justify-center overflow-hidden p-2">
+        <img id="lightbox-img" src="" alt="확대 이미지" class="max-h-[70vh] w-auto object-contain rounded-lg">
+      </div>
+      <div class="p-4 bg-white border-t border-slate-200 text-xs space-y-1">
+        <div class="flex items-center gap-2">
+          <span id="lightbox-category" class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-50 text-rose-600">카테고리</span>
+          <span id="lightbox-specs" class="text-slate-500">해상도 300DPI · RGB</span>
+        </div>
+        <p id="lightbox-desc" class="text-slate-600 text-[11px] pt-1">작품 상세 설명입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-message">알림</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const galleryItems = [
+      {
+        id: 'item-1',
+        category: 'novel',
+        categoryName: '웹소설 표지 및 삽화',
+        title: '웹소설 포트폴리오1',
+        img: 'https://lh3.googleusercontent.com/bvN3L9_BI4aKoyv-O2E8nxdctEW9oK7P9K5JuQUhorkYghJ7tDF3audocEHU9ZCtRsea0Ja_NlDdvQagBX5GJJuWO1kWgPHbX5fSY7JWf05KNjDqWUkuDg=s0?gpos=8.0000',
+        specs: '규격 2000X2500',
+        desc: '현대 판타지'
+      },
+      {
+        id: 'item-6',
+        category: 'personal',
+        categoryName: '개인 커미션',
+        title: '신청용님 커미션',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/s/sb/sb78fbhbebx6200lsi6xbt8g35xjd4rm_%EC%8B%A0%EC%B2%AD%EC%9A%A9%EB%8B%98%20%EC%BB%A4%EB%AF%B8%EC%85%98.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '규격 4000X4500',
+        desc: '신청용님 커미션'
+      },
+      {
+        id: 'item-7',
+        category: 'personal',
+        categoryName: '개인 커미션',
+        title: '리아님 커미션',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/s/sr/srcdurl4f9dmcy05xrkpveagojljsjdk_%EB%A6%AC%EC%95%84%EB%8B%98%20%EC%BB%A4%EB%AF%B8%EC%85%98.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '규격 2000X2500',
+        desc: '리아님 커미션'
+      },
+      {
+        id: 'item-8',
+        category: 'personal',
+        categoryName: '개인 커미션',
+        title: '징이님 커미션',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/e/e2/e2u1qbkk3fcgnmrb1gwh3d4ulpi6xl2p_%EC%A7%95%EC%9D%B4%EB%8B%98_%EC%99%84%EC%84%B1%EB%B3%B8.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '규격 2500X2000',
+        desc: '징이님 커미션'
+      },
+      {
+        id: 'item-5',
+        category: 'sheet',
+        categoryName: '캐릭터 시트 및 디자인',
+        title: '웹툰 캐릭터 시트1 (앞, 뒤, 표정 3종)',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/h/hx/hxikaaugu06cgk84b4ths4on7jfr58n0_%EC%BA%90%EC%8B%9C%ED%8A%B8_%EB%B0%B1%20-%20%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '2500X2000',
+        desc: '웹툰 캐릭터 시트1'
+      },
+      {
+        id: 'item-9',
+        category: 'sheet',
+        categoryName: '캐릭터 시트 및 디자인',
+        title: '웹툰 캐릭터 시트2 (앞, 뒤, 표정 3종)',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/5/5z/5zg0m3hcc3hovgpblg4bl78jmu6txpfu_%EC%BA%90%EC%8B%9C%ED%8A%B8_%EC%A0%95%EC%A7%80%ED%98%B8%20-%20%EB%B3%B5%EC%82%AC%EB%B3%B8.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '2500X2000',
+        desc: '웹툰 캐릭터 시트2'
+      },
+      {
+        id: 'item-3',
+        category: 'personal',
+        categoryName: '개인 커미션',
+        title: '우나나님 커미션',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/9/9x/9xbxj4wow6zjgol6uzkkr86yrqvz0znt_%EC%9A%B0%EB%82%98%EB%82%98%EB%8B%98%20%EC%BB%A4%EB%AF%B8%EC%85%98.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '2000X2500',
+        desc: '2인 흉~반신'
+      },
+      {
+        id: 'item-2',
+        category: 'novel',
+        categoryName: '웹소설 표지 및 삽화',
+        title: '웹소설 포트폴리오2',
+        img: 'https://lh3.googleusercontent.com/udtpQzEZwFw34jabEfWKJr31xkc_xSTUS7CEjSmugCsWoq_0Qte-9--AyD78D267OI3ssZXwwIVOHhPaG76n2EKH3TnLwoEZp9RUPAUh8Z7Na6H3LWfG=s0?gpos=7.0001',
+        specs: '규격 2000X2500',
+        desc: '동양풍'
+      },
+      {
+        id: 'item-4',
+        category: 'personal',
+        categoryName: '개인 커미션',
+        title: 'soe님 커미션',
+        img: 'https://i.crepe.land/https://crepe.land/commission_type/j/j1/j18ecox5milbu4wiiy2bfp0nkbfznnm0_soe%EB%8B%98%20%EC%BB%A4%EB%AF%B8%EC%85%98.jpg?q=100&t=i&v=3a&w=1280',
+        specs: '4000X4500',
+        desc: '2인 반~전신'
+      }
+    ];
+
+    const portfolioCategories = [
+      { id: 'all', name: '전체' },
+      { id: 'novel', name: '웹소설 표지' },
+      { id: 'personal', name: '개인 커미션' },
+      { id: 'sheet', name: '캐릭터 시트' },
+      { id: 'broadcast', name: '방송용' },
+      { id: 'commercial', name: '상업용' }
+    ];
+
+    let currentPortfolioFilter = 'all';
+
+    function renderPortfolioTabs() {
+      const container = document.getElementById('portfolio-category-bar');
+      if (!container) return;
+      container.innerHTML = '';
+
+      portfolioCategories.forEach(cat => {
+        const isSelected = cat.id === currentPortfolioFilter;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `px-2.5 py-1 rounded-lg text-xs font-semibold transition border ${
+          isSelected 
+            ? 'bg-rose-50 border-rose-300 text-rose-600 font-bold shadow-sm shadow-rose-100' 
+            : 'bg-white border-slate-200/90 text-slate-600 hover:bg-slate-50 shadow-2xs'
+        }`;
+        btn.innerText = cat.name;
+        btn.onclick = () => {
+          currentPortfolioFilter = cat.id;
+          renderPortfolioTabs();
+          renderPortfolioMasonry();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function renderPortfolioMasonry() {
+      const grid = document.getElementById('portfolio-masonry-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const filtered = currentPortfolioFilter === 'all' 
+        ? galleryItems 
+        : galleryItems.filter(item => item.category === currentPortfolioFilter);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="w-full py-12 text-center text-xs text-slate-400 bg-white rounded-2xl border border-slate-200">등록된 샘플을 준비 중입니다.</div>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'masonry-brick group bg-white rounded-2xl border border-slate-200/90 overflow-hidden cursor-pointer shadow-sm shadow-slate-200/70 hover:shadow-md hover:border-slate-300 transition';
+        itemEl.onclick = (e) => openLightbox(item, e);
+
+        itemEl.innerHTML = `
+          <div class="relative w-full bg-slate-100 overflow-hidden">
+            <img 
+              src="${item.img}" 
+              alt="${item.title}" 
+              class="w-full h-auto block object-contain transition-transform duration-300 group-hover:scale-102" 
+              loading="lazy"
+              onerror="this.src='https://placehold.co/400x500/f1f5f9/94a3b8?text=${encodeURIComponent(item.title)}'"
+            >
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+              <span class="px-3 py-1.5 rounded-lg bg-white/95 text-slate-900 text-xs font-bold shadow-md">크게 보기</span>
+            </div>
+          </div>
+          <div class="p-3 bg-white border-t border-slate-100">
+            <p class="text-xs font-bold text-slate-800 truncate">${item.title}</p>
+            <p class="text-[11px] text-slate-400 truncate mt-0.5">${item.specs}</p>
+          </div>
+        `;
+        grid.appendChild(itemEl);
+      });
+    }
+
+    // --- [클릭한 지점 맞춤 팝업 열기] ---
+    function openLightbox(item, event) {
+      document.getElementById('lightbox-title').innerText = item.title;
+      document.getElementById('lightbox-category').innerText = item.categoryName;
+      document.getElementById('lightbox-specs').innerText = item.specs;
+      document.getElementById('lightbox-desc').innerText = item.desc;
+      document.getElementById('lightbox-img').src = item.img;
+
+      const modal = document.getElementById('lightbox-modal');
+      const card = document.getElementById('lightbox-card');
+
+      // 클릭한 카드 요소의 절대 위치(Top)를 찾아서 그 높이에 맞춤
+      let targetTop = 100;
+      if (event && event.currentTarget) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // 클릭한 카드 위치 기준으로 화면 중앙에 오도록 자연스럽게 오프셋 계산
+        targetTop = rect.top + scrollTop - 80;
+      }
+      
+      // 최소 상단 여백 20px 유지
+      card.style.marginTop = `${Math.max(20, targetTop)}px`;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleBackdropClick(event) {
+      if (event.target.id === 'lightbox-modal') closeLightbox();
+    }
+
+    // Configurator state
+    let currentCategory = 'personal';
+    let currentScale = 'head';
+    let charCount = 1;
+    let cart = [];
+
+    const categoryConfigs = {
+      personal: {
+        name: '개인 커미션',
+        scales: [
+          { id: 'head', name: '두상', price: 30000 },
+          { id: 'bust', name: '흉상', price: 40000 },
+          { id: 'half', name: '반신', price: 50000 },
+          { id: 'full', name: '전신', price: 60000 }
+        ],
+        hasChars: true,
+        canAddBg: true,
+        privateFee: 10000
+      },
+      broadcast: {
+        name: '방송용 일러스트',
+        scales: [
+          { id: 'head', name: '두상', price: 60000 },
+          { id: 'bust', name: '흉상', price: 80000 },
+          { id: 'half', name: '반신', price: 100000 },
+          { id: 'full', name: '전신', price: 120000 }
+        ],
+        hasChars: true,
+        canAddBg: true,
+        privateFee: 0
+      },
+      sheet: {
+        name: '캐릭터 시트 및 디자인',
+        scales: [
+          { id: 'sheet_personal', name: '비상업용', price: 300000 },
+          { id: 'sheet_broadcast', name: '방송용', price: 500000 },
+          { id: 'sheet_commercial', name: '상업용', price: 800000 }
+        ],
+        hasChars: false,
+        canAddBg: false,
+        privateFee: null
+      },
+      novel: {
+        name: '웹소설 표지 및 삽화',
+        scales: [
+          { id: 'novel_1p', name: '기본 1인 구도 (배경 포함)', price: 700000 },
+          { id: 'novel_2p', name: '2인 구도 (배경 포함)', price: 1000000 }
+        ],
+        hasChars: false,
+        canAddBg: false,
+        privateFee: 0
+      },
+      commercial: {
+        name: '상업용 기타 일러스트',
+        scales: [
+          { id: 'comm_basic', name: '기본 상업 일러스트', price: 500000 }
+        ],
+        hasChars: false,
+        canAddBg: true,
+        privateFee: 0
+      }
+    };
+
+    function selectCategory(catKey) {
+      currentCategory = catKey;
+      charCount = 1;
+      
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('bg-rose-50', 'border-rose-400', 'text-rose-600', 'shadow-sm', 'shadow-rose-100');
+        btn.classList.add('bg-white', 'border-slate-200', 'text-slate-600');
+      });
+      const activeBtn = document.getElementById(`cat-btn-${catKey}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'border-slate-200', 'text-slate-600');
+        activeBtn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-600', 'shadow-sm', 'shadow-rose-100');
+      }
+
+      currentScale = categoryConfigs[catKey].scales[0].id;
+      renderScaleSelector();
+      calculateActiveConfig();
+    }
+
+    function renderScaleSelector() {
+      const container = document.getElementById('dynamic-scale-container');
+      if (!container) return;
+      const cfg = categoryConfigs[currentCategory];
+      
+      let colCount = cfg.scales.length > 2 ? (cfg.scales.length === 4 ? 'grid-cols-4' : 'grid-cols-3') : 'grid-cols-2';
+      let html = `<label class="block text-xs font-bold text-slate-700 mb-1">작업 범위 / 세부 타입</label><div class="grid ${colCount} gap-2">`;
+      
+      cfg.scales.forEach(s => {
+        const isSelected = s.id === currentScale;
+        html += `
+          <button type="button" onclick="selectScale('${s.id}')" class="scale-btn py-2 px-1 rounded-xl text-xs font-semibold border text-center transition ${
+            isSelected 
+              ? 'bg-rose-50 border-rose-400 text-rose-600 font-bold shadow-sm shadow-rose-100' 
+              : 'bg-white border-slate-200/90 text-slate-700 hover:bg-slate-50 shadow-2xs'
+          }">
+            <div>${s.name}</div>
+            <div class="text-[11px] font-bold text-slate-500 mt-0.5">${s.price.toLocaleString()}원</div>
+          </button>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function selectScale(scaleId) {
+      currentScale = scaleId;
+      renderScaleSelector();
+      calculateActiveConfig();
+    }
+
+    function changeCharCount(delta) {
+      charCount = Math.max(1, Math.min(10, charCount + delta));
+      const display = document.getElementById('char-count-display');
+      if (display) display.innerText = charCount;
+      calculateActiveConfig();
+    }
+
+    function updateVisibilityRules() {
+      const cfg = categoryConfigs[currentCategory];
+
+      const charBox = document.getElementById('character-count-box');
+      if (charBox) charBox.style.display = cfg.hasChars ? 'flex' : 'none';
+
+      const bgBox = document.getElementById('bg-option-box');
+      if (bgBox) bgBox.style.display = cfg.canAddBg ? 'block' : 'none';
+
+      const privateCostEl = document.getElementById('opt-private-cost');
+      let fee = 0;
+      if (currentCategory === 'personal') {
+        fee = 10000;
+      } else if (currentCategory === 'sheet') {
+        fee = currentScale === 'sheet_personal' ? 10000 : 0;
+      } else {
+        fee = 0;
+      }
+      if (privateCostEl) {
+        privateCostEl.innerText = fee > 0 ? `+${fee.toLocaleString()}원` : '0원 (포함)';
+      }
+      return fee;
+    }
+
+    function calculateActiveConfig() {
+      const privateFeeRule = updateVisibilityRules();
+      const cfg = categoryConfigs[currentCategory];
+      const scaleObj = cfg.scales.find(s => s.id === currentScale) || cfg.scales[0];
+
+      let basePrice = scaleObj.price;
+      if (cfg.hasChars) {
+        basePrice = scaleObj.price * charCount;
+      }
+
+      const isPrivate = document.getElementById('opt-private')?.checked || false;
+      let privateFee = isPrivate ? privateFeeRule : 0;
+
+      const bgVal = document.getElementById('opt-bg')?.value || 'none';
+      let bgFee = 0;
+      let bgDesc = '';
+      if (cfg.canAddBg) {
+        if (bgVal === 'personal') { bgFee = 30000; bgDesc = ' + 비상업배경'; }
+        else if (bgVal === 'broadcast') { bgFee = 50000; bgDesc = ' + 방송용배경'; }
+      }
+
+      const customFee = parseInt(document.getElementById('opt-custom-fee')?.value) || 0;
+      const subtotal = basePrice + privateFee + bgFee + customFee;
+
+      const isReviewEvent = document.getElementById('opt-review-event')?.checked || false;
+      const reviewDiscount = isReviewEvent ? Math.round(subtotal * 0.1) : 0;
+      const currentItemTotal = subtotal - reviewDiscount;
+
+      const reviewDiscountLabel = document.getElementById('opt-review-discount-label');
+      if (reviewDiscountLabel) {
+        reviewDiscountLabel.innerText = isReviewEvent ? `-${reviewDiscount.toLocaleString()}원` : '최종가 10% 할인';
+      }
+
+      let detailDesc = `${cfg.name} · ${scaleObj.name}`;
+      if (cfg.hasChars) detailDesc += ` (${charCount}인)`;
+      if (isPrivate && privateFee > 0) detailDesc += ` + 비공개`;
+      detailDesc += bgDesc;
+      if (customFee > 0) detailDesc += ` + 추가금`;
+      if (isReviewEvent) detailDesc += ` (리뷰이벤트 -10%)`;
+
+      const breakdownEl = document.getElementById('active-item-breakdown');
+      const priceEl = document.getElementById('active-item-price');
+      if (breakdownEl) breakdownEl.innerText = detailDesc;
+      if (priceEl) priceEl.innerText = currentItemTotal.toLocaleString();
+    }
+
+    function addToCart() {
+      const cfg = categoryConfigs[currentCategory];
+      const scaleObj = cfg.scales.find(s => s.id === currentScale) || cfg.scales[0];
+
+      let basePrice = scaleObj.price;
+      if (cfg.hasChars) {
+        basePrice = scaleObj.price * charCount;
+      }
+
+      const isPrivate = document.getElementById('opt-private')?.checked || false;
+      let privateFee = 0;
+      if (isPrivate) {
+        if (currentCategory === 'personal') privateFee = 10000;
+        else if (currentCategory === 'sheet' && currentScale === 'sheet_personal') privateFee = 10000;
+        else privateFee = 0;
+      }
+
+      const bgVal = document.getElementById('opt-bg')?.value || 'none';
+      let bgFee = 0;
+      let bgText = '기본/없음';
+      if (cfg.canAddBg) {
+        if (bgVal === 'personal') { bgFee = 30000; bgText = '비상업용 배경'; }
+        else if (bgVal === 'broadcast') { bgFee = 50000; bgText = '방송용 배경'; }
+      }
+
+      const customFee = parseInt(document.getElementById('opt-custom-fee')?.value) || 0;
+      const subtotal = basePrice + privateFee + bgFee + customFee;
+
+      const isReviewEvent = document.getElementById('opt-review-event')?.checked || false;
+      const reviewDiscount = isReviewEvent ? Math.round(subtotal * 0.1) : 0;
+      const itemTotal = subtotal - reviewDiscount;
+
+      const cartItem = {
+        id: Date.now(),
+        categoryName: cfg.name,
+        scaleName: scaleObj.name,
+        charCount: cfg.hasChars ? charCount : 1,
+        hasChars: cfg.hasChars,
+        isPrivate,
+        privateFee,
+        bgText,
+        bgFee,
+        customFee,
+        isReviewEvent,
+        reviewDiscount,
+        totalPrice: itemTotal
+      };
+
+      cart.push(cartItem);
+      renderCart();
+      showToast('장바구니에 견적 항목이 추가되었습니다.');
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      renderCart();
+    }
+
+    function clearCart() {
+      if (cart.length === 0) return;
+      cart = [];
+      renderCart();
+      showToast('장바구니가 비워졌습니다.');
+    }
+
+    function generateFormText() {
+      if (cart.length === 0) {
+        return `[커미션 / 외주 신청서]\n----------------------------------\n(장바구니에 항목을 담으면 견적이 여기에 자동 생성됩니다)\n----------------------------------\n총 예상 견적: 0원\n\n1. 닉네임 / 입금자명: \n2. 캐릭터 설정 및 자료 (외모/의상/표정/포즈): \n3. 희망 작업 마감일: \n4. 사용 용도 (상업용/개인소장/방송용): \n5. 기타 요청사항: `;
+      }
+
+      let grandTotal = 0;
+      let itemsText = '';
+
+      cart.forEach((item, i) => {
+        grandTotal += item.totalPrice;
+        itemsText += `[신청 항목 0${i + 1}]\n`;
+        itemsText += `- 타입: ${item.categoryName} (${item.scaleName})\n`;
+        if (item.hasChars) itemsText += `- 인원: ${item.charCount}인\n`;
+        if (item.isPrivate) itemsText += `- 비공개 여부: 요청 (${item.privateFee.toLocaleString()}원)\n`;
+        if (item.bgFee > 0) itemsText += `- 배경: ${item.bgText} (${item.bgFee.toLocaleString()}원)\n`;
+        if (item.customFee > 0) itemsText += `- 기타 추가금: ${item.customFee.toLocaleString()}원\n`;
+        if (item.isReviewEvent) itemsText += `- 리뷰 이벤트 참여: -${item.reviewDiscount.toLocaleString()}원 (10% 할인 적용)\n`;
+        itemsText += `- 해당 항목 견적: ${item.totalPrice.toLocaleString()}원\n\n`;
+      });
+
+      return `[커미션 / 외주 신청서]\n----------------------------------\n${itemsText}----------------------------------\n총 예상 견적: ${grandTotal.toLocaleString()}원\n\n1. 닉네임 / 입금자명: \n2. 캐릭터 설정 및 자료 (외모/의상/표정/포즈): \n3. 희망 작업 마감일: \n4. 사용 용도 (상업용/개인소장/방송용): \n5. 기타 요청사항: `;
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total-price');
+      const previewArea = document.getElementById('form-preview-area');
+      if (!container || !totalEl) return;
+
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="py-8 text-center text-slate-400 text-xs">
+            담긴 견적 항목이 없습니다.<br>
+            원하시는 옵션을 선택 후 추가해 보세요.
+          </div>
+        `;
+        totalEl.innerText = '0';
+        if (previewArea) previewArea.value = generateFormText();
+        return;
+      }
+
+      let grandTotal = 0;
+
+      cart.forEach((item, index) => {
+        grandTotal += item.totalPrice;
+        const div = document.createElement('div');
+        div.className = 'p-3 rounded-xl bg-slate-50/90 border border-slate-200 text-xs space-y-1 relative shadow-2xs';
+
+        let details = [];
+        if (item.hasChars && item.charCount > 1) details.push(`${item.charCount}인`);
+        if (item.isPrivate) details.push(`비공개(${item.privateFee > 0 ? '+' + item.privateFee.toLocaleString() + '원' : '무료'})`);
+        if (item.bgFee > 0) details.push(`${item.bgText}(+${item.bgFee.toLocaleString()}원)`);
+        if (item.customFee > 0) details.push(`추가금(+${item.customFee.toLocaleString()}원)`);
+        if (item.isReviewEvent) details.push(`리뷰이벤트(-${item.reviewDiscount.toLocaleString()}원)`);
+
+        div.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="font-bold text-slate-800">[${index + 1}] ${item.categoryName} · ${item.scaleName}</span>
+              ${details.length > 0 ? `<p class="text-[11px] text-slate-500 mt-0.5">${details.join(' / ')}</p>` : ''}
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-rose-500 font-bold p-1">✕</button>
+          </div>
+          <div class="text-right font-extrabold text-rose-600 pt-1">
+            ${item.totalPrice.toLocaleString()}원
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      totalEl.innerText = grandTotal.toLocaleString();
+      if (previewArea) previewArea.value = generateFormText();
+    }
+
+    function copyApplicationForm() {
+      if (cart.length === 0) {
+        showToast('장바구니에 1개 이상의 견적 항목을 담아주세요.');
+        return;
+      }
+      const template = generateFormText();
+      const textarea = document.createElement('textarea');
+      textarea.value = template;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showToast('신청 양식이 클립보드에 복사되었습니다! (Ctrl+V)');
+    }
+
+    function copyPageLink() {
+      const url = window.location.href;
+      const textarea = document.createElement('textarea');
+      textarea.value = url;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showToast('페이지 링크가 복사되었습니다.');
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleFaq(id) {
+      const content = document.getElementById(id);
+      const arrow = document.getElementById(`${id}-arrow`);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        arrow.innerText = '▲';
+      } else {
+        content.classList.add('hidden');
+        arrow.innerText = '▼';
+      }
+    }
+
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-message');
+      text.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    function startApp() {
+      renderPortfolioTabs();
+      renderPortfolioMasonry();
+      selectCategory('personal');
+      renderCart();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+      startApp();
+    }
+  </script>
+</body>
+</html>
